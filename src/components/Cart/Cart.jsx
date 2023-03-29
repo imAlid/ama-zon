@@ -5,20 +5,24 @@ const Cart = ({ cart }) => {
   // const cart = props.cart;
   // const { card } = props;
 
-  let total = 0;
+  let totalPrice = 0;
+  let totalShipping = 0;
   for (const product of cart) {
-    total = total + product.price;
+    totalPrice = totalPrice + product.price;
+    totalShipping = totalShipping + product.shipping;
   }
+  const tax = (totalPrice * 5) / 100;
+  const grandTotal = totalPrice + totalShipping + tax;
 
   return (
     <div className="cart">
       <h3>Order Summary</h3>
       <p>selected item: {cart.length}</p>
-      <p>Total Price: ${total}</p>
-      <p>Total Shipping Charge:</p>
-      <p>Tax:</p>
+      <p>Total Price: ${totalPrice}</p>
+      <p>Total Shipping Charge: ${totalShipping}</p>
+      <p>Tax: ${tax.toFixed(2)}</p>
       <p>
-        <b>Grand Total:</b>
+        <b>Grand Total: ${grandTotal.toFixed(2)}</b>
       </p>
     </div>
   );
