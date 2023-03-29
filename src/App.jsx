@@ -13,7 +13,6 @@ function App() {
     <div className="App">
       <Nav></Nav>
       <Shop></Shop>
-      {/* <Product></Product> */}
     </div>
   )
 }
